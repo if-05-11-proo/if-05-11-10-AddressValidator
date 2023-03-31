@@ -1,5 +1,5 @@
 ### Assignment: java.io, Serialization, Decorator Pattern, Observer Pattern, RegEx
-# Address Shaper
+# Address Validator
 
 ## Objective:
 Implementation of an application for receiving 

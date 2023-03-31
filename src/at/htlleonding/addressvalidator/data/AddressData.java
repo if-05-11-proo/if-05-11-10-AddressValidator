@@ -1,6 +1,5 @@
 package at.htlleonding.addressvalidator.data;
 
-import java.io.Serializable;
 import java.util.UUID;
 
 public class AddressData {

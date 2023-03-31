@@ -1,0 +1,27 @@
+@startuml
+title Transmission Protocol
+Sender -> Receiver : Ctrl Data: HELLO
+note right: receiver acknowledges the session by logging a message
+Sender -> Receiver : Ctrl Data: NEGOTIATE_API_TOKEN
+note right
+The receiver accepts the provided API Token as 
+the only valid API Token for all transmitted data
+during this session.
+end note
+loop
+	Sender -> Receiver : Address Data
+	note right
+	The sender transmits a number of addresses to the receiver.
+	The API Token of every received address data need to be
+	validated against the API Token received by 'NEGOTIATE_API_TOKEN'
+	control data.
+	Only address data with an API Token that is equal to the negotiated
+	API Token are accepted.
+	end note
+end
+Sender -> Receiver: Ctrl Data: GOOD_BY
+note right
+The sender indicates the termination of the connection.
+The receiver closes the connection (stream).
+end note
+@enduml
